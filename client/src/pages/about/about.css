@@ -1,0 +1,56 @@
+
+
+body{
+    height: 100vh;
+    position: relative;
+}
+
+body::after{
+    content: "";
+    height: 100%;
+    width: 70%;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-image: url('../../components/images/max1.png');
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.full-content{
+    display: flex;
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    justify-content: space-around;
+    position: relative;
+}
+
+.top-left-content{
+    width: 90%;
+    left: 10%;
+    height: 90%;
+    overflow: auto;
+}
+
+.top-left-content::-webkit-scrollbar{
+    display: none;
+}
+
+.bottom-right-content{
+    width: 100%;
+    margin-left: 20%;
+    margin-top: 40%;
+    right: 0;
+    overflow: hidden;
+}
+.bottom-right-content:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width:700px) 
+{
+
+    
+}
