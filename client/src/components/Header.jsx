@@ -40,7 +40,7 @@ const Navbar = () => {
 
         <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
           <ul>
-            <li style={{fontSize:"20px"}}><Link to={'/blog'}>Home</Link></li> {/* Link to Home */}
+            <li style={{fontSize:"20px"}}><Link to={'/'}>Home</Link></li> {/* Link to Home */}
             <li style={{fontSize:"20px"}}>About</li>
             <li style={{fontSize:"20px"}}
               className="dropdown"

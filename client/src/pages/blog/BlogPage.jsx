@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { getAllPosts } from "../../services/index/posts";
@@ -51,7 +51,7 @@ const BlogPage = () => {
 
   return (
     <MainLayout>
-      <section className="flex flex-col container mx-auto px-5 py-10">
+      <section className="flex flex-col container mx-auto px-5 py-10 my-20">
         <Search
           className="w-full max-w-xl mb-10"
           onSearchKeyword={handleSearch}
