@@ -17,6 +17,12 @@ import EditCategories from "./pages/admin/screens/categories/EditCategories";
 import Users from "./pages/admin/screens/users/Users";
 import BlogPage from "./pages/blog/BlogPage";
 import About from "./pages/about/About"
+import Service from "./pages/service/kids/Service";
+import Fitness from './pages/service/fitness/Fitness';
+import Medical from './pages/service/medical/Medical';
+import International from './pages/service/international/International';
+
+
 
 function App() {
   return (
@@ -24,6 +30,12 @@ function App() {
       <Routes>
         
         <Route index path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage/>}/>
+        <Route path="/service/kids" element={<Service/>}/>
+        <Route path="/service/fitness" element={<Fitness/>}/>
+        <Route path="/service/medical" element={<Medical/>}/>
+        <Route path="/service/international" element={<International/>}/>
+
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<ArticleDetailPage />} />
         <Route path="/register" element={<RegisterPage />} />

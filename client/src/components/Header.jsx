@@ -38,10 +38,10 @@ const Navbar = () => {
           </h2>
         </div>
 
-        <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
-          <ul>
+        <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"  }>
+          <ul className="only-to-hover">
             <li style={{fontSize:"20px"}}><Link to={'/'}>Home</Link></li> {/* Link to Home */}
-            <li style={{fontSize:"20px"}}>About</li>
+            <li style={{fontSize:"20px"}}><Link to={'/service'}>Shop</Link></li>
             <li style={{fontSize:"20px"}}
               className="dropdown"
               onMouseEnter={handleDropdownMouseEnter}
@@ -53,12 +53,12 @@ const Navbar = () => {
                   showDropdown ? "dropdown-content show" : "dropdown-content"
                 }
               >
-                <li style={{fontSize:"20px"}}>Sports Nutrition</li>
-                <li style={{fontSize:"20px"}}>Kids Nutrition</li>
-                <li style={{fontSize:"20px"}}>Sports Nutrition</li>
-                <li style={{fontSize:"20px"}}>International Client Nutrition</li>
-                <li style={{fontSize:"20px"}}>Client Nutrition</li>
-                <li style={{fontSize:"20px"}}>Sports Nutrition</li>
+                <Link to={'/service/sports'} style={{fontSize:"20px"}}>Sports Nutrition</Link>
+                <Link to={'/service/kids'} style={{fontSize:"20px"}}>Kids Nutrition</Link>
+                <Link to={'/service/medical'} style={{fontSize:"20px"}}>Medical Nutrition</Link>
+                <Link to={'/service/international'} style={{fontSize:"20px"}}>International Client</Link>
+                <Link to={'/service/fitness'} style={{fontSize:"20px"}}>Fitness Nutrition</Link>
+                <Link to={'/service/fitness'} style={{fontSize:"20px"}}>Nutrition for health</Link>
               </div>
             </li>
             <li style={{fontSize:"20px"}}><Link to={'/about'}>About</Link></li>

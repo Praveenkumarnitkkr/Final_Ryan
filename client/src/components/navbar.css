@@ -8,10 +8,9 @@
 
 }
 :root {
-  --main-color: #f47d2b;
+  --main-color: #e1301c;
+
 }
-
-
 a {
   text-decoration: none;
 }
@@ -69,6 +68,11 @@ li {
   color:var(--main-color) ;
 
 }
+.only-to-hover li a:hover {
+  color: var(--main-color) !important;
+  text-decoration: none !important;
+
+}
 
 .dropdown {
   position: relative;
@@ -89,20 +93,25 @@ li {
   transition: opacity 0.9s ease, visibility 0.3s ease; /* Add transition effect */
 }
 
-.dropdown-content li {
+.dropdown-content a {
+  display: block;
   padding: 13px;
   color: black;
 }
+
 
 .dropdown:hover .dropdown-content,
 .dropdown-content:hover {
   visibility: visible; /* Change visibility to visible when hovered */
   opacity: 1; /* Change opacity to 1 when hovered */
 }
+.dropdown-content a:hover {
+  color: var(--main-color); /* Change color on hover */
+}
 
 
 
-.dropdown-content li{
+.dropdown-content a{
   padding: 13px;
   color: black;
 }

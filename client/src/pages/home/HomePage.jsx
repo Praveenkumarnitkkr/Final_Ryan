@@ -1,7 +1,4 @@
-
-
 import MainLayout from "../../components/MainLayout";
-
 import Section from "../../components/Section";
 import Newsletter from "../../components/Newsletter";
 
