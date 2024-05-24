@@ -4,22 +4,24 @@ import {
   FaFacebookSquare,
   FaInstagramSquare,
   FaYoutubeSquare,
+  FaLinkedin,
+  FaAngleDown
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import Logoimage from "../components/images/logo.png";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleMenuClick = (e) => {
-    e.preventDefault(); 
-    setShowMediaIcons(!showMediaIcons);
+    if (!e.target.closest('.social-media-desktop')) {
+      e.preventDefault();
+      setShowMediaIcons(!showMediaIcons);
+    }
   };
-  
-
 
   const handleDropdownMouseEnter = () => {
     setShowDropdown(true);
@@ -40,14 +42,14 @@ const Navbar = () => {
 
         <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"  }>
           <ul className="only-to-hover">
-            <li style={{fontSize:"20px"}}><Link to={'/'}>Home</Link></li> {/* Link to Home */}
-            <li style={{fontSize:"20px"}}><Link to={'/service'}>Shop</Link></li>
+            <li style={{fontSize:"20px"}}><Link to={'/'}>Home</Link></li>
+            <li style={{fontSize:"20px"}}><Link to={'/eatwell'}>Shop</Link></li>
             <li style={{fontSize:"20px"}}
               className="dropdown"
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
             >
-              Services
+              Services <span><FaAngleDown/></span>
               <div
                 className={
                   showDropdown ? "dropdown-content show" : "dropdown-content"
@@ -63,13 +65,41 @@ const Navbar = () => {
             </li>
             <li style={{fontSize:"20px"}}><Link to={'/about'}>About</Link></li>
             <li style={{fontSize:"20px"}}><Link to={'/blog'}>Blog</Link></li>
+            {showMediaIcons && (
+              <li>
+                <div className="social-media-mobile">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/ryanfernando" target="_blank" rel="noopener noreferrer">
+                        <FaFacebookSquare className="facebook" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/" target="/">
+                        <FaInstagramSquare className="instagram" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/@celebritynutritionistryan" target="_blank" rel="noopener noreferrer">
+                        <FaYoutubeSquare className="youtube" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/in/ryanfernando/" target="_blank" rel="noopener noreferrer">
+                        <FaLinkedin className="linkedin" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            )}
           </ul>
         </div>
 
         <div className="social-media">
           <ul className="social-media-desktop">
             <li>
-              <a href="/" target="/">
+              <a href="https://www.facebook.com/ryanfernando"  target="_blank" rel="noopener noreferrer">
                 <FaFacebookSquare className="facebook" />
               </a>
             </li>
@@ -79,11 +109,13 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a
-                href="https://www.youtube.com/watch?v=X6UMOcq8sDY"
-                target=""
-              >
+              <a href="https://www.youtube.com/@celebritynutritionistryan" target="_blank" rel="noopener noreferrer">
                 <FaYoutubeSquare className="youtube" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/ryanfernando/" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin className="linkedin" />
               </a>
             </li>
           </ul>

@@ -6,10 +6,19 @@ const { v4: uuidv4 } = require("uuid");
 
 const createPost = async (req, res, next) => {
   try {
+    const generateSlug = (title) => {
+      const timestamp = Date.now();
+      let slug = title.toLowerCase().replace(/\s+/g, "-");
+      slug = slug.replace(/[^\w-]+/g, "");
+      slug = `${slug}-${timestamp}`;
+      return slug;
+    };
+    const postTitle = "Sample Post";
     const post = new Post({
-      title: "sample title",
+      title: postTitle,
       caption: "sample caption",
-      slug: uuidv4(),
+      // slug: uuidv4(),
+      slug: generateSlug(postTitle),
       body: {
         type: "doc",
         content: [],

@@ -21,6 +21,13 @@ import Service from "./pages/service/kids/Service";
 import Fitness from './pages/service/fitness/Fitness';
 import Medical from './pages/service/medical/Medical';
 import International from './pages/service/international/International';
+import ManageProducts from "./pages/admin/screens/products/ManageProducts";
+import ManageOrders from "./pages/admin/screens/orders/ManageOrders";
+import EditProduct from "./pages/admin/screens/products/EditProduct";
+import Members from "./pages/admin/screens/members/Members";
+import Eatwell from "./pages/eatwell/Eat"
+
+
 
 
 
@@ -35,7 +42,7 @@ function App() {
         <Route path="/service/fitness" element={<Fitness/>}/>
         <Route path="/service/medical" element={<Medical/>}/>
         <Route path="/service/international" element={<International/>}/>
-
+        <Route path="/eatwell" element={<Eatwell/>}/>
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<ArticleDetailPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -45,13 +52,17 @@ function App() {
           <Route index element={<Admin />} />
           <Route path="comments" element={<Comments />} />
           <Route path="posts/manage" element={<ManagePosts />} />
+          <Route path="products/manage" element={<ManageProducts />} />
+          <Route path="orders/manage" element={<ManageOrders />} />
           <Route path="posts/manage/edit/:slug" element={<EditPost />} />
+          <Route path="products/manage/edit/:slug" element={<EditProduct />} />
           <Route path="categories/manage" element={<Categories />} />
           <Route
             path="categories/manage/edit/:slug"
             element={<EditCategories />}
           />
           <Route path="users/manage" element={<Users />} />
+          <Route path="members/manage" element={<Members />} />
         </Route>
         <Route path="/about" element={<About/>}></Route>
       </Routes>

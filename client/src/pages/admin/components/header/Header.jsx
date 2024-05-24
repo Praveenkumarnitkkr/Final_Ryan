@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useWindowSize } from "@uidotdev/usehooks";
-
-import { images } from "../../../../constants";
+import { TbChecklist } from "react-icons/tb";
+// import { images } from "../../../../constants";
 import { useEffect, useState } from "react";
 import { AiFillDashboard, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { FaComments, FaUser } from "react-icons/fa";
@@ -12,6 +12,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { createPost } from "../../../../services/index/posts";
+import { createProduct } from "../../../../services/index/products";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -38,6 +39,23 @@ const Header = () => {
         console.log(error);
       },
     });
+  const { mutate: mutateCreateProduct, isLoading: isLoadingCreateProduct } =
+    useMutation({
+      mutationFn: ({ slug, token }) => {
+        return createProduct({
+          token,
+        });
+      },
+      onSuccess: (data) => {
+        queryClient.invalidateQueries(["products"]);
+        toast.success("Product is created, edit that now!");
+        navigate(`/admin/products/manage/edit/${data.slug}`);
+      },
+      onError: (error) => {
+        toast.error(error.message);
+        console.log(error);
+      },
+    });
 
   const toggleMenuHandler = () => {
     setIsMenuActive((prevState) => !prevState);
@@ -53,6 +71,9 @@ const Header = () => {
 
   const handleCreateNewPost = ({ token }) => {
     mutateCreatePost({ token });
+  };
+  const handleCreateNewProduct = ({ token }) => {
+    mutateCreateProduct({ token });
   };
 
   return (
@@ -132,6 +153,42 @@ const Header = () => {
                 activeNavName={activeNavName}
                 setActiveNavName={setActiveNavName}
               />
+              <NavItem
+                title="Members"
+                link="/admin/members/manage"
+                icon={<FaUser className="text-xl" />}
+                name="members"
+                activeNavName={activeNavName}
+                setActiveNavName={setActiveNavName}
+              />
+              <NavItem
+                title="Orders"
+                link="/admin/orders/manage"
+                icon={<TbChecklist className="text-xl" />}
+                name="orders"
+                activeNavName={activeNavName}
+                setActiveNavName={setActiveNavName}
+              />
+              
+              <NavItemCollapse
+                title="Products"
+                icon={<MdDashboard className="text-xl" />}
+                name="products"
+                activeNavName={activeNavName}
+                setActiveNavName={setActiveNavName}
+              >
+                <Link to="/admin/products/manage">Manage all Products</Link>
+                <button
+                  disabled={isLoadingCreateProduct}
+                  className="text-start disabled:opacity-60 disabled:cursor-not-allowed"
+                  onClick={() =>
+                    handleCreateNewProduct({ token: userState.userInfo.token })
+                  }
+                >
+                  Add New Product
+                </button>
+                {/* <Link to="/admin/categories/manage">Categories</Link> */}
+              </NavItemCollapse>
             </div>
           </div>
         </div>

@@ -1,14 +1,15 @@
-import React from "react";
+// import React from "react";
 import {
   FaFacebookSquare,
   FaTwitterSquare,
   FaRedditSquare,
   FaWhatsappSquare,
 } from "react-icons/fa";
+import PropTypes from 'prop-types';
 
 const SocialShareButtons = ({ url, title }) => {
   return (
-    <div className="w-full flex justify-between">
+    <div className="w-full  flex justify-between">
       <a
         target="_blank"
         rel="noreferrer"
@@ -40,5 +41,8 @@ const SocialShareButtons = ({ url, title }) => {
     </div>
   );
 };
-
+SocialShareButtons.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 export default SocialShareButtons;
