@@ -18,7 +18,6 @@ const paymentRoutes = require("./routes/paymentRoutes");
 const uploadRoutes = require("./routes/uploadRoutes.js");
 const commentRoutes = require("./routes/commentRoutes");
 const postCategoriesRoutes = require("./routes/postCategoriesRoutes");
-// const testimonialRoutes = require("./routes/testimonialRoutes.js");
 
 dotenv.config();
 connectDB();
@@ -39,7 +38,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/payment", paymentRoutes);
-// app.use("/api/testimonials",testimonialRoutes);
 
 // static assets
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));

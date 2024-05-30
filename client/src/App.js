@@ -25,7 +25,16 @@ import ManageProducts from "./pages/admin/screens/products/ManageProducts";
 import ManageOrders from "./pages/admin/screens/orders/ManageOrders";
 import EditProduct from "./pages/admin/screens/products/EditProduct";
 import Members from "./pages/admin/screens/members/Members";
-import Eatwell from "./pages/eatwell/Eat"
+import Eatwell from "./pages/eatwell/Eat";
+import ShippingScreen from "./pages/shipping/ShippingScreen";
+import PaymentScreen from "./pages/payment/PaymentScreen";
+import PlaceOrderScreen from "./pages/placeorder/PlaceOrderScreen";
+import OrderScreen from "./pages/order/OrderScreen";
+import SingleProductScreen from "./pages/single-product/SingleProductScreen";
+import CartScreen from "./pages/cart/CartScreen";
+import ProductScreen from "./pages/product/ProductScreen";
+import Podcastpage from "./pages/podcast/Podcast";
+
 
 
 
@@ -38,6 +47,7 @@ function App() {
         
         <Route index path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage/>}/>
+        <Route path="/podcast" element={<Podcastpage/>}/>
         <Route path="/service/kids" element={<Service/>}/>
         <Route path="/service/fitness" element={<Fitness/>}/>
         <Route path="/service/medical" element={<Medical/>}/>
@@ -48,6 +58,16 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/shop/" element={<ProductScreen />} />
+        <Route path="/product/:id" element={<SingleProductScreen />} />
+        <Route path="/cart">
+          <Route index element={<CartScreen />} />
+          <Route path=":id" element={<CartScreen />} />
+        </Route>
+        <Route path="/shipping" element={<ShippingScreen />} />
+        <Route path="/payment" element={<PaymentScreen />} />
+        <Route path="/placeorder" element={<PlaceOrderScreen />} />
+        <Route path="/order/:id" element={<OrderScreen />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Admin />} />
           <Route path="comments" element={<Comments />} />

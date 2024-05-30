@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"  }>
           <ul className="only-to-hover">
             <li style={{fontSize:"20px"}}><Link to={'/'}>Home</Link></li>
-            <li style={{fontSize:"20px"}}><Link to={'/eatwell'}>Shop</Link></li>
+            <li style={{fontSize:"20px"}}><Link to={'/shop/'}>Shop</Link></li>
             <li style={{fontSize:"20px"}}
               className="dropdown"
               onMouseEnter={handleDropdownMouseEnter}
@@ -65,6 +65,7 @@ const Navbar = () => {
             </li>
             <li style={{fontSize:"20px"}}><Link to={'/about'}>About</Link></li>
             <li style={{fontSize:"20px"}}><Link to={'/blog'}>Blog</Link></li>
+            <li style={{fontSize:"20px"}}><Link to={'/podcast'}>Podcast</Link></li>
             {showMediaIcons && (
               <li>
                 <div className="social-media-mobile">
